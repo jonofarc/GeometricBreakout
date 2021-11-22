@@ -148,7 +148,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 223541831}
   m_LocalRotation: {x: -0, y: -0, z: 0, w: 1}
-  m_LocalPosition: {x: 5, y: 1, z: 0.5}
+  m_LocalPosition: {x: 5, y: 1, z: 0}
   m_LocalScale: {x: 0.69948, y: 0.69948, z: 0.69948}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -537,7 +537,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57e78d20add485e409c92d81eeaab053, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ballSpeed: 8
+  ballSpeed: 3
+  ballAcceleration: 0.5
+  maxBallSpeed: 10
   topMovement: 1
   bottomMovement: 0
   rightMovement: 1
@@ -908,14 +910,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.25784966, y: -0, z: -0, w: 0.96618503}
-  m_LocalPosition: {x: 4.5, y: 10, z: -3}
+  m_LocalRotation: {x: 0.37459654, y: -0, z: -0, w: 0.9271879}
+  m_LocalPosition: {x: 4.5, y: 9.5, z: -0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 29.885, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 43.999, y: 0, z: 0}
 --- !u!114 &963194229
 MonoBehaviour:
   m_ObjectHideFlags: 0

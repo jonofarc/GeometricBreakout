@@ -6,6 +6,9 @@ using UnityEngine.SceneManagement;
 public class BallMove : MonoBehaviour
 {
     public float ballSpeed = 1.0f;
+    [Tooltip("How fast the ball accelerate if 0 ball speed is always the same")]
+    public float ballAcceleration = 0.0f;
+    public float maxBallSpeed = 12.0f;
     //this can also be achived using only 2 flags for up/dow and left/right movement but a 4 flag aproach makes it clearer to understand
     public bool topMovement = false;
     public bool bottomMovement = false;
@@ -21,7 +24,10 @@ public class BallMove : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-
+        ballSpeed += Time.deltaTime *(0.1f*ballAcceleration);
+        if (ballSpeed > maxBallSpeed) {
+            ballSpeed = maxBallSpeed;
+        }
         if (topMovement)
         {
             transform.position = new Vector3(

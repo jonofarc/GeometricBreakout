@@ -32,11 +32,11 @@ public class GenerateBlocks : MonoBehaviour
             {2, 2, 2, 2, 2, 2, 2, 2, 2, 2} ,
             {1, 1, 1, 1, 1, 1, 1, 1, 1, 1} ,
             {0, 0, 0, 0, 0, 0, 0, 0, 0, 0} ,
-            {5, 5, 5, 5, 5, 5, 5, 5, 5, 5} ,
-            {4, 4, 4, 4, 4, 4, 4, 4, 4, 4} ,
-            {3, 3, 3, 3, 3, 3, 3, 3, 3, 3} ,
-            {2, 2, 2, 2, 2, 2, 2, 2, 2, 2} ,
-            {1, 1, 1, 1, 1, 1, 1, 1, 1, 1} ,
+            {0, 5, 5, 5, 5, 5, 5, 5, 5, 0} ,
+            {0, 4, 4, 4, 4, 4, 4, 4, 4, 0} ,
+            {0, 3, 3, 3, 3, 3, 3, 3, 3, 0} ,
+            {0, 2, 2, 2, 2, 2, 2, 2, 2, 0} ,
+            {0, 1, 1, 1, 1, 1, 1, 1, 1, 0} ,
             {0, 0, 0, 0, 0, 0, 0, 0, 0, 0} ,
             {2, 2, 2, 2, 2, 2, 2, 2, 2, 2} ,
             {1, 1, 1, 1, 1, 1, 1, 1, 1, 1} ,
@@ -48,7 +48,7 @@ public class GenerateBlocks : MonoBehaviour
             for (int j = 0; j < 10; j++){
                 int value = lvl1Array[i, j];
                 if (value > 0) {
-                    Vector3 possition = new Vector3(j, 1.0f, 20-i);
+                    Vector3 possition = new Vector3(j, 1.0f, 19-i);
                     GameObject block = Instantiate(baseBlock, possition, baseBlock.transform.rotation) as GameObject;
                     GlobalVariables.blocksInPlay++;
                     block.SendMessage("setHp", lvl1Array[i, j]);
