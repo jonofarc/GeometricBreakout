@@ -94,7 +94,7 @@ public class BallMove : MonoBehaviour
                 Debug.Log("Killer collision occured");
 
                 GameObject mainCamera;
-                mainCamera = GameObject.FindGameObjectWithTag(GlobalVariables.MainCameraTag);
+                mainCamera = GameObject.FindGameObjectWithTag(GlobalVariables.mainCameraTag);
                 mainCamera.SendMessage("updateBalls",-1);
                 Destroy(this.gameObject);
 

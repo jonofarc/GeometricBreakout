@@ -4,7 +4,12 @@ using System.Collections;
 public class GlobalVariables : MonoBehaviour {
 
 	
-	public static string MainCameraTag = "MainCamera";
+	public static string mainCameraTag = "MainCamera";
+	public static string blockTag = "Block";
+	public static int ballsInPlay = 1;
+	public static int blocksInPlay = 0;
+	// ball damage is handled as a negative value as it is making damage and reducing block hp
+	public static int ballDamage = 1;
 
 
 	// Use this for initialization

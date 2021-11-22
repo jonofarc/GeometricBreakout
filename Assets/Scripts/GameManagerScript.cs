@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManagerScript : MonoBehaviour
 {
-    int ballsInPlay = 1;
+    private int  blocksInPlay =0;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,26 +21,37 @@ public class GameManagerScript : MonoBehaviour
 
     void updateBalls(int amount)
     {
-        ballsInPlay += amount;
-        if (ballsInPlay <= 0) {
+        GlobalVariables.ballsInPlay += amount;
+        if (GlobalVariables.ballsInPlay <= 0) {
             StartCoroutine(gameOver());
         }
     }
 
-    IEnumerator gameOver()
+    void updateBlocks(int amount)
     {
-        //Print the time of when the function is first called.
-        Debug.Log("Started Coroutine at timestamp : " + Time.time);
+        GlobalVariables.blocksInPlay += amount;
+        blocksInPlay = GlobalVariables.blocksInPlay;
+        if (GlobalVariables.blocksInPlay <= 0)
+        {
+            StartCoroutine(victory());
+        }
+    }
 
+    IEnumerator victory()
+    {
+        Debug.Log("Game Won!!!!!!!! : " + Time.time);
         //yield on a new YieldInstruction that waits for 5 seconds.
         yield return new WaitForSeconds(3);
-
-
-        //After we have waited 5 seconds print the time again.
-        Debug.Log("Finished Coroutine at timestamp : " + Time.time);
-
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex, LoadSceneMode.Single);
-
     }
+
+    IEnumerator gameOver()
+    {
+        Debug.Log("Game Over!!!!!!!! : " + Time.time);
+        //yield on a new YieldInstruction that waits for 5 seconds.
+        yield return new WaitForSeconds(3);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex, LoadSceneMode.Single);
+    }
+
 
 }

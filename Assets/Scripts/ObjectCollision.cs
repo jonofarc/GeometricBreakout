@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ObjectCollision : MonoBehaviour
 {
+   
     //tipe of collision object
     public bool topCollision = false;
     public bool bottomCollision = false;
@@ -38,6 +39,12 @@ public class ObjectCollision : MonoBehaviour
         collisionType[3] = leftCollision;
         collisionType[4] = killerCollision;
         collision.gameObject.SendMessage("updateMovement", collisionType);
+        
+        if (this.transform.parent.gameObject.tag == GlobalVariables.blockTag) {
+            this.transform.parent.gameObject.SendMessage("updateHp");
+        }
+        
+       
     }
 
 }
