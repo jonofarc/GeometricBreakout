@@ -21,6 +21,12 @@ public class PlayerMove : MonoBehaviour
     [Tooltip("Player Right movement Limit")]
     public float rightLimit = 9.0f;
 
+    //momentum calculation variables
+    public float[] momentumArray  = new float[30];
+    public float momentum = 0f;
+    private int momentumIndex = 0;
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -136,6 +142,28 @@ public class PlayerMove : MonoBehaviour
                    );
 
         }
+
+
+    }
+
+    private void FixedUpdate()
+    {
+
+        if ( momentumIndex >= 30) {
+            momentumIndex = 0;
+        }
+
+        momentumArray[momentumIndex] = transform.position.x;
+        momentumIndex++;
+
+        float momentumSum = 0;
+        for (int i = 0; i < momentumArray.Length; i ++) {
+
+            momentumSum += momentumArray[i];
+
+        }
+
+        momentum = (momentumSum / momentumArray.Length) - transform.position.x;
 
 
     }

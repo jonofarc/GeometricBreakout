@@ -14,6 +14,8 @@ public class ObjectCollision : MonoBehaviour
     [Tooltip("Consider this collision as a round ending collision")]
     public bool killerCollision = false;
 
+    [Tooltip("extra directional momentum added to ball after a collision with this object")]
+    public float momentum = 0f;
 
     // Start is called before the first frame update
     void Start()
@@ -43,8 +45,19 @@ public class ObjectCollision : MonoBehaviour
         if (this.transform.parent.gameObject.tag == GlobalVariables.blockTag) {
             this.transform.parent.gameObject.SendMessage("updateHp");
         }
+
+        if (this.transform.parent.gameObject.tag == GlobalVariables.playerTag)
+        {
+            PlayerMove playerMove = this.transform.parent.GetComponent<PlayerMove>();
+            momentum = playerMove.momentum;
+        }
         
-       
+
+        collision.gameObject.SendMessage("updateMomentum", momentum);
+        
+
+
+
     }
 
 }

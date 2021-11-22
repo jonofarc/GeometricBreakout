@@ -51,9 +51,7 @@ public class blockStatus : MonoBehaviour
 
     private void updateMaterial()
     {
-        Debug.Log("updating material for hp: "+ hp);
         
-
         switch (hp)
         {
             case 1:
