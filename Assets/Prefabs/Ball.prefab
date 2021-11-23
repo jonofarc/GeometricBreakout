@@ -120,9 +120,9 @@ MonoBehaviour:
   bottomMovement: 0
   rightMovement: 1
   leftMovement: 0
-  momentum: 0
+  momentum: 5
   maxMomentum: 5
-  monetumModifier: 0.01
+  monetumModifier: 0.04
 --- !u!54 &2218477937262009638
 Rigidbody:
   m_ObjectHideFlags: 0

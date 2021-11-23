@@ -37,12 +37,27 @@ public class BallMove : MonoBehaviour
         if (ballSpeed > maxBallSpeed) {
             ballSpeed = maxBallSpeed;
         }
+
+        float moveAmount = ballSpeed * Time.deltaTime;
+        float moveMomentumAmount = momentum * monetumModifier;
+
+        Debug.Log("moveAmount = " + moveAmount + "moveMomentumAmount = " + moveMomentumAmount + " result =" + (moveAmount + moveMomentumAmount));
+        //if momentum will overpower standar X axis movement capp it at 90%
+        //probably a better way to implement capping momentum for bot negative and positive values can be implemented
+        if (moveMomentumAmount >= moveAmount) {
+            moveMomentumAmount = moveAmount * 0.9f;
+        }
+        if (moveMomentumAmount <= (moveAmount * -1))
+        {
+            moveMomentumAmount = moveAmount * -0.9f;
+        }
+
         if (topMovement)
         {
             transform.position = new Vector3(
                        transform.position.x,
                        transform.position.y,
-                       transform.position.z + ballSpeed * Time.deltaTime
+                       transform.position.z + moveAmount
                    );
         }
         if (bottomMovement)
@@ -50,13 +65,14 @@ public class BallMove : MonoBehaviour
             transform.position = new Vector3(
                        transform.position.x,
                        transform.position.y,
-                       transform.position.z - ballSpeed * Time.deltaTime
+                       transform.position.z - moveAmount
                    );
         }
+
         if (rightMovement)
         {
             transform.position = new Vector3(
-                       transform.position.x + ballSpeed * Time.deltaTime+(momentum*monetumModifier),
+                       transform.position.x + ( moveMomentumAmount),
                        transform.position.y,
                        transform.position.z
                    );
@@ -65,11 +81,12 @@ public class BallMove : MonoBehaviour
         if (leftMovement)
         {
             transform.position = new Vector3(
-                       transform.position.x - (ballSpeed * Time.deltaTime)+(momentum* monetumModifier),
+                       transform.position.x + (moveMomentumAmount),
                        transform.position.y,
                        transform.position.z
-                   );
+                   ); 
         }
+        
 
     }
 
@@ -99,12 +116,14 @@ public class BallMove : MonoBehaviour
             {
                 rightMovement = true;
                 leftMovement = false;
+                momentum *= -1;
             }
 
             if (collisionType[3])
             {
                 rightMovement = false;
                 leftMovement = true;
+                momentum *= -1;
             }
 
             //killer collision

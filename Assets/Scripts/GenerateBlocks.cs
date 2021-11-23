@@ -50,6 +50,7 @@ public class GenerateBlocks : MonoBehaviour
                 if (value > 0) {
                     Vector3 possition = new Vector3(j, 1.0f, 19-i);
                     GameObject block = Instantiate(baseBlock, possition, baseBlock.transform.rotation) as GameObject;
+                    block.transform.SetParent(this.transform);
                     GlobalVariables.blocksInPlay++;
                     block.SendMessage("setHp", lvl1Array[i, j]);
                     
