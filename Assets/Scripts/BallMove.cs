@@ -116,14 +116,15 @@ public class BallMove : MonoBehaviour
             {
                 rightMovement = true;
                 leftMovement = false;
-                momentum *= -1;
+                momentum = Mathf.Abs(momentum);
             }
 
             if (collisionType[3])
             {
                 rightMovement = false;
                 leftMovement = true;
-                momentum *= -1;
+                momentum = Mathf.Abs(momentum);
+                momentum *= -1; 
             }
 
             //killer collision
