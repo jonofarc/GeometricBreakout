@@ -1583,7 +1583,7 @@ MonoBehaviour:
   bottomCollision: 0
   rightCollision: 0
   leftCollision: 0
-  killerCollision: 0
+  killerCollision: 1
   momentum: 0
 --- !u!65 &1728923282
 BoxCollider:
