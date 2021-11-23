@@ -123,6 +123,7 @@ MonoBehaviour:
   momentum: 5
   maxMomentum: 5
   monetumModifier: 0.04
+  killParticles: {fileID: 100010, guid: 48eb08bad3412f847838e13ef801046c, type: 3}
 --- !u!54 &2218477937262009638
 Rigidbody:
   m_ObjectHideFlags: 0

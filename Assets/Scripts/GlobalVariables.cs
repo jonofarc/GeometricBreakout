@@ -7,6 +7,8 @@ public class GlobalVariables : MonoBehaviour {
 	public static string mainCameraTag = "MainCamera";
 	public static string blockTag = "Block";
 	public static string playerTag = "Player";
+	public static int currentLevel = 0;
+	public static int lastLevel = 2;
 	public static int ballsInPlay = 0;
 	public static int blocksInPlay = 0;
 	

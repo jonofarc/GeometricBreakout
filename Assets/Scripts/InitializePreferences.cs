@@ -10,10 +10,15 @@ public class InitializePreferences : MonoBehaviour {
 
 
 		PlayerPrefs.SetInt("TargetFPS", fpsTarget);
-		if (PlayerPrefs.GetInt("CurrentLevel")<=0){
-			Debug.Log ("First Time Use");
-			initializePreferences (); 
+		int currentLevel = PlayerPrefs.GetInt("CurrentLevel");
+		if (currentLevel <= 0 || currentLevel > GlobalVariables.lastLevel){
+			Debug.Log("First Time Use or currentLevel out of bounds");
+			initializePreferences();
 		}
+		else{
+			GlobalVariables.currentLevel = currentLevel;
+		}
+		
 
 	
 	}
@@ -30,6 +35,7 @@ public class InitializePreferences : MonoBehaviour {
 	public void initializePreferences(){
 		
 		PlayerPrefs.SetInt ("CurrentLevel", startLevel);
+		GlobalVariables.currentLevel = startLevel;
 		Debug.Log (PlayerPrefs.GetInt("CurrentLevel"));
 	}
 }

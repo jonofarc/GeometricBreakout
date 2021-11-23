@@ -21,6 +21,8 @@ public class BallMove : MonoBehaviour
     public float maxMomentum = 5f;
     public float monetumModifier = 0.01f;
 
+    public GameObject killParticles;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -135,6 +137,13 @@ public class BallMove : MonoBehaviour
                 GameObject mainCamera;
                 mainCamera = GameObject.FindGameObjectWithTag(GlobalVariables.mainCameraTag);
                 mainCamera.SendMessage("updateBalls",-1);
+
+
+                if (killParticles != null) {
+                    GameObject block = Instantiate(killParticles, this.transform.position, this.transform.rotation) as GameObject;
+                }
+                
+
                 Destroy(this.gameObject);
 
             }

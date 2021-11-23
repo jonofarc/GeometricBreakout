@@ -89,8 +89,16 @@ public class GameManagerScript : MonoBehaviour
     IEnumerator victory()
     {
         Debug.Log("Game Won!!!!!!!! : " + Time.time);
-        //yield on a new YieldInstruction that waits for 5 seconds.
+        //yield on a new YieldInstruction that waits for 3 seconds.
         yield return new WaitForSeconds(3);
+
+        GlobalVariables.currentLevel++;
+        //if the last level is finished loop back to first level
+        if (GlobalVariables.currentLevel > GlobalVariables.lastLevel) {
+            GlobalVariables.currentLevel = 1;
+        }
+        PlayerPrefs.SetInt("CurrentLevel", GlobalVariables.currentLevel);
+
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex, LoadSceneMode.Single);
     }
 
