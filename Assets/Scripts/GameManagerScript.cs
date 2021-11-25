@@ -16,6 +16,7 @@ public class GameManagerScript : MonoBehaviour
     void Start()
     {
         updateBalls(0);
+
     }
 
     // Update is called once per frame
@@ -95,7 +96,8 @@ public class GameManagerScript : MonoBehaviour
         GlobalVariables.currentLevel++;
         //if the last level is finished loop back to first level
         if (GlobalVariables.currentLevel > GlobalVariables.lastLevel) {
-            GlobalVariables.currentLevel = 1;
+            
+            GlobalVariables.setCurrentLevel(1);
         }
         PlayerPrefs.SetInt("CurrentLevel", GlobalVariables.currentLevel);
 

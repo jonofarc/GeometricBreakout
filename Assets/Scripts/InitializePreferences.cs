@@ -16,7 +16,7 @@ public class InitializePreferences : MonoBehaviour {
 			initializePreferences();
 		}
 		else{
-			GlobalVariables.currentLevel = currentLevel;
+			GlobalVariables.setCurrentLevel(currentLevel);
 		}
 		
 
@@ -35,7 +35,7 @@ public class InitializePreferences : MonoBehaviour {
 	public void initializePreferences(){
 		
 		PlayerPrefs.SetInt ("CurrentLevel", startLevel);
-		GlobalVariables.currentLevel = startLevel;
-		Debug.Log (PlayerPrefs.GetInt("CurrentLevel"));
+		GlobalVariables.setCurrentLevel(startLevel);
+		
 	}
 }

@@ -5,16 +5,17 @@ using UnityEngine;
 
 public class GenerateBlocks : MonoBehaviour
 {
-    public int levelToGenerate = 0;
+    private int levelToGenerate = 0;
     public GameObject baseBlock;
     // Start is called before the first frame update
     void Start()
     {
         levelToGenerate = GlobalVariables.currentLevel;
-        if (levelToGenerate > 0) {
-            switch (levelToGenerate) {
-                case 1:
-                    int[,] lvl1Array = new int[14, 10] {
+        int[,] lvlArray = new int[14, 10];
+        switch (levelToGenerate)
+        {
+            case 1:
+                lvlArray = new int[14, 10] {
                         {0, 0, 0, 0, 0, 0, 0, 0, 0, 0} ,
                         {0, 0, 0, 0, 0, 0, 0, 0, 0, 0} ,
                         {0, 0, 0, 0, 0, 0, 0, 0, 0, 0} ,
@@ -30,11 +31,32 @@ public class GenerateBlocks : MonoBehaviour
                         {0, 0, 0, 0, 0, 0, 0, 0, 0, 0} ,
                         {0, 0, 0, 0, 0, 0, 0, 0, 0, 0} ,
                     };
-                    generateLvl(lvl1Array);
-                    break;
-                default:
+                generateLvl(lvlArray);
+                break;
 
-                    int[,] lvl2Array = new int[14, 10] {
+            case 2:
+                lvlArray = new int[14, 10] {
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0} ,
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0} ,
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0} ,
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0} ,
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0} ,
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0} ,
+                        {0, 1, 1, 1, 1, 1, 1, 1, 1, 0} ,
+                        {0, 1, 1, 1, 1, 1, 1, 1, 1, 0} ,
+                        {0, 2, 2, 2, 2, 2, 2, 2, 2, 0} ,
+                        {0, 1, 1, 1, 1, 1, 1, 1, 1, 0} ,
+                        {0, 1, 1, 1, 1, 1, 1, 1, 1, 0} ,
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0} ,
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0} ,
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0} ,
+                    };
+                generateLvl(lvlArray);
+                break;
+
+            default:
+                Debug.Log("No specified Level Defined Genarating Level 1");
+                lvlArray = new int[14, 10] {
                         {0, 0, 0, 0, 0, 0, 0, 0, 0, 0} ,
                         {0, 0, 0, 0, 0, 0, 0, 0, 0, 0} ,
                         {0, 0, 0, 0, 0, 0, 0, 0, 0, 0} ,
@@ -50,12 +72,11 @@ public class GenerateBlocks : MonoBehaviour
                         {0, 0, 0, 0, 0, 0, 0, 0, 0, 0} ,
                         {0, 0, 0, 0, 0, 0, 0, 0, 0, 0} ,
                     };
-
-                    generateLvl(lvl2Array);
-                    break;
-            }
+                GlobalVariables.setCurrentLevel(1);
+                generateLvl(lvlArray);
+                break;
         }
-        
+
     }
 
     private void generateLvl(int[,] lvl1Array)

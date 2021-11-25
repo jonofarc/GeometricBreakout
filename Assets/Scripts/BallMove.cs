@@ -43,9 +43,9 @@ public class BallMove : MonoBehaviour
         float moveAmount = ballSpeed * Time.deltaTime;
         float moveMomentumAmount = momentum * monetumModifier;
 
-        Debug.Log("moveAmount = " + moveAmount + "moveMomentumAmount = " + moveMomentumAmount + " result =" + (moveAmount + moveMomentumAmount));
+        
         //if momentum will overpower standar X axis movement capp it at 90%
-        //probably a better way to implement capping momentum for bot negative and positive values can be implemented
+        //probably a better way to implement capping momentum for both negative and positive values can be implemented
         if (moveMomentumAmount >= moveAmount) {
             moveMomentumAmount = moveAmount * 0.9f;
         }

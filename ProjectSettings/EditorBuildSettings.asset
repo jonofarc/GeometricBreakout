@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Splash.unity
     guid: 2756a3a51a1c34f47befc182a446d83f
   - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 6c1990b749aee6140963b1a4d31621e6
+  - enabled: 1
     path: Assets/Scenes/FiniteLevel.unity
     guid: c850ee8c3b14cc8459e7e186857cf567
   m_configObjects:
