@@ -7,15 +7,18 @@ using UnityEngine.SceneManagement;
 public class GameManagerScript : MonoBehaviour
 {
     public int lives = 0;
-    private int blocksInPlay = 0;
-    private int ballsInPlay = 0;
     public GameObject ball;
+    public GameObject ballsUi;
+    public GameObject blocksUi;
     
 
     // Start is called before the first frame update
     void Start()
     {
+        //set 0 balls in play to force a spawn
+        GlobalVariables.ballsInPlay = 0;
         updateBalls(0);
+        updateBlocks(0);
 
     }
 
@@ -48,6 +51,7 @@ public class GameManagerScript : MonoBehaviour
     void updateBalls(int amount)
     {
         GlobalVariables.ballsInPlay += amount;
+        ballsUi.SendMessage("updateText", "Balls: " + lives);
         if (GlobalVariables.ballsInPlay <= 0) {
             if (lives <= 0) {
                 StartCoroutine(gameOver());
@@ -66,8 +70,10 @@ public class GameManagerScript : MonoBehaviour
                 GlobalVariables.ballsInPlay += 1;
 
             }
+           
             
         }
+        
     }
 
     private IEnumerator spawnNewBall(float seconds)
@@ -80,7 +86,7 @@ public class GameManagerScript : MonoBehaviour
     void updateBlocks(int amount)
     {
         GlobalVariables.blocksInPlay += amount;
-        blocksInPlay = GlobalVariables.blocksInPlay;
+        blocksUi.SendMessage("updateText", "Blocks: " + GlobalVariables.blocksInPlay);
         if (GlobalVariables.blocksInPlay <= 0)
         {
             StartCoroutine(victory());
@@ -93,14 +99,14 @@ public class GameManagerScript : MonoBehaviour
         //yield on a new YieldInstruction that waits for 3 seconds.
         yield return new WaitForSeconds(3);
 
-        GlobalVariables.currentLevel++;
+        
+        GlobalVariables.setCurrentLevel(GlobalVariables.currentLevel + 1);
         //if the last level is finished loop back to first level
         if (GlobalVariables.currentLevel > GlobalVariables.lastLevel) {
-            
-            GlobalVariables.setCurrentLevel(1);
-        }
-        PlayerPrefs.SetInt("CurrentLevel", GlobalVariables.currentLevel);
 
+            GlobalVariables.setCurrentLevel(GlobalVariables.currentLevel + 1);
+        }
+        
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex, LoadSceneMode.Single);
     }
 

@@ -11,27 +11,22 @@ public class MainMenu : MonoBehaviour {
     void Start () {
 		//Debug.Log (_language); 
 		//language section //we make sure that the language is a valid one and that its on the latest language used
-	
+
 
 		// show continue button only if current level is more than the second one
-		if (PlayerPrefs.GetInt ("CurrentLevel") > 0) {
+		if (PlayerPrefs.GetInt ("CurrentLevel") > 1) {
 			ContinueButton.SetActive (true);
 		} else {
 			ContinueButton.SetActive (false);
 		}
 
-        
-        // setting default fps
-       // GlobalVariables.TargetFPS = PlayerPrefs.GetInt("TargetFPS");
-       // Application.targetFrameRate = GlobalVariables.TargetFPS;
 
-        
+		// setting default fps
+		Application.targetFrameRate = GlobalVariables.TargetFPS;
 
-        //change text of objects to current language
 
-        
 
-	
+
 	}
 	
 	// Update is called once per frame
@@ -52,19 +47,4 @@ public class MainMenu : MonoBehaviour {
 		Application.Quit();
 	}
 
-	void OnGUI(){
-		//if (GUI.Button (new Rect (10, 70, 50, 30), "Click")) {
-		//	Debug.Log("Clicked the button with text");
-		//}
-			
-	}// end of GUI
-
-	/*
-    public void setFPS(int TargetFPS) {
-        PlayerPrefs.SetInt("TargetFPS", TargetFPS);
-        GlobalVariables.TargetFPS = PlayerPrefs.GetInt("TargetFPS");
-        Debug.Log("Current FPS set to: "+GlobalVariables.TargetFPS);
-        Application.targetFrameRate = GlobalVariables.TargetFPS;
-    }
-	*/
 }

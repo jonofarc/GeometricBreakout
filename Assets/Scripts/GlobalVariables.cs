@@ -8,9 +8,10 @@ public class GlobalVariables : MonoBehaviour {
 	public static string blockTag = "Block";
 	public static string playerTag = "Player";
 	public static int currentLevel = 1;
-	public static int lastLevel = 2;
+	public static int lastLevel = 3;
 	public static int ballsInPlay = 0;
 	public static int blocksInPlay = 0;
+	public static int TargetFPS = 60;
 
 	// ball damage is handled as a negative value as it is making damage and reducing block hp
 	public static int ballDamage = 1;
