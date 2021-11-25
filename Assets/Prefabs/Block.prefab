@@ -63,6 +63,7 @@ MonoBehaviour:
   rightCollision: 0
   leftCollision: 0
   killerCollision: 0
+  momentum: 0
 --- !u!1 &80306328578668089
 GameObject:
   m_ObjectHideFlags: 0
@@ -126,6 +127,7 @@ MonoBehaviour:
   rightCollision: 1
   leftCollision: 0
   killerCollision: 0
+  momentum: 0
 --- !u!1 &80306328766526839
 GameObject:
   m_ObjectHideFlags: 0
@@ -189,6 +191,7 @@ MonoBehaviour:
   rightCollision: 1
   leftCollision: 0
   killerCollision: 0
+  momentum: 0
 --- !u!1 &80306328843131820
 GameObject:
   m_ObjectHideFlags: 0
@@ -252,6 +255,7 @@ MonoBehaviour:
   rightCollision: 0
   leftCollision: 1
   killerCollision: 0
+  momentum: 0
 --- !u!1 &80306328859442008
 GameObject:
   m_ObjectHideFlags: 0
@@ -357,12 +361,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 5
+  destructible: 1
   blockHpMaterials:
+  - {fileID: 2100000, guid: cc79657f6c06996468a629de57fe86aa, type: 2}
   - {fileID: 2100000, guid: 9e7073f3ab0b6d34287a1bedc8688631, type: 2}
   - {fileID: 2100000, guid: 0a28bcbc14ec93c44be5fdf6576d86fc, type: 2}
   - {fileID: 2100000, guid: e03f5a0a565369a429a3509e8ac6b51f, type: 2}
   - {fileID: 2100000, guid: 62e1d535316cd1f459842d7753d77fd1, type: 2}
   - {fileID: 2100000, guid: 20c7b08a2fb5b5a4798c076d286c0ea4, type: 2}
+  hitTimeCoolDown: 0.2
 --- !u!1 &80306328996320702
 GameObject:
   m_ObjectHideFlags: 0
@@ -426,6 +433,7 @@ MonoBehaviour:
   rightCollision: 0
   leftCollision: 1
   killerCollision: 0
+  momentum: 0
 --- !u!1 &80306329584370985
 GameObject:
   m_ObjectHideFlags: 0
@@ -489,6 +497,7 @@ MonoBehaviour:
   rightCollision: 0
   leftCollision: 0
   killerCollision: 0
+  momentum: 0
 --- !u!1 &80306329631950221
 GameObject:
   m_ObjectHideFlags: 0
@@ -552,6 +561,7 @@ MonoBehaviour:
   rightCollision: 1
   leftCollision: 0
   killerCollision: 0
+  momentum: 0
 --- !u!1 &80306329713203229
 GameObject:
   m_ObjectHideFlags: 0
@@ -615,3 +625,4 @@ MonoBehaviour:
   rightCollision: 0
   leftCollision: 1
   killerCollision: 0
+  momentum: 0
