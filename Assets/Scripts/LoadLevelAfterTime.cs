@@ -6,10 +6,14 @@ public class LoadLevelAfterTime : MonoBehaviour {
 
 	public float myTime=5f;
 	public string LevelToLoad="";
+	public bool autoload = true;
 
 	// Use this for initialization
 	void Start () {
-		Invoke ("LoadLevel", myTime);
+		if (autoload) { 
+			Invoke ("LoadLevel", myTime);
+		}
+		
 	}
 	
 	// Update is called once per frame
@@ -23,6 +27,20 @@ public class LoadLevelAfterTime : MonoBehaviour {
 				
 		} else {
 			SceneManager.LoadScene (LevelToLoad);
+		}
+
+	}
+	public void LoadLevelByName(string levelToLoad)
+	{
+		if (levelToLoad == "")
+		{
+
+			SceneManager.LoadScene((SceneManager.GetActiveScene().buildIndex) + 1);
+
+		}
+		else
+		{
+			SceneManager.LoadScene(levelToLoad);
 		}
 
 	}

@@ -101,7 +101,7 @@ public class GenerateBlocks : MonoBehaviour
 
     private void generateLvl(int[,] lvl1Array)
     {
-       
+        GlobalVariables.blocksInPlay = 0;
         for (int i = 0; i < 14; i++) {
             for (int j = 0; j < 14; j++){
                 int value = lvl1Array[i, j];
